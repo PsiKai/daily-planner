@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import "../owfont-regular.css"
 
 let apiKey = process.env.REACT_APP_WEATHER;
 
@@ -19,8 +18,9 @@ const Weather = () => {
       const res = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`
       );
+      var suffix = res.data.weather[0].icon.slice(2);
       setWeather(Math.round(res.data.main.temp));
-      setIcon(res.data.weather[0].icon);
+      setIcon(res.data.weather[0].id + "-" + suffix);
     };
 
  useEffect(() => {
@@ -29,7 +29,7 @@ const Weather = () => {
   //eslint-disable-next-line
   }, [location]);
 
-  const imgURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+  // const imgURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
 
   if (weather !== null) {
     return (
@@ -37,8 +37,8 @@ const Weather = () => {
         <h2 className="temp">
           {weather}°
         </h2>
-        {/* <i className={`weather-icon ${icon}`}></i> */}
-        <img className="weather-icon" src={imgURL} alt="Weather Icon" />
+        <i className={`weather-icon owf owf-${icon} owf-3x`}></i>
+        {/* <img className="weather-icon" src={imgURL} alt="Weather Icon" /> */}
       </div>
     );
   }
