@@ -56,7 +56,6 @@ li {
 }
 
 .pattern {
-  /* margin-top: 78px; */
   grid-row-start: 2;
   height: 637px;
   width: 100%;
@@ -76,12 +75,9 @@ li {
 }
 
 .date {
-  /* position: absolute;
-  z-index: 2; */
   padding-left: 10px;
   margin-top: 20px;
   margin-bottom: 5px;
-  /* margin-top: 20px; */
   font-family: "Libre Baskerville", serif;
 }
 
@@ -124,57 +120,9 @@ input[type="text"]::placeholder {
   width: 21.1px;
   height: 21.1px;
   opacity: 0;
-  /* overflow: hidden; */
-  /* position: absolute; */
   z-index: -1;
-  /* width: 58px; */
-  /* position: absolute; */
-  /* right: 0;s */
   top: 10px;
-  /* grid-column-start: 5;
-  grid-row-start: 6; */
-  /* margin-left: -25px;
-  background-color: #fff4b0;
-  background-image: url("./images/textured-paper.png");
-  border: none;
-  font-family: "Dancing Script", cursive;
-  font-size: 24px;
-  color: #381a14;
-  opacity: 85%; */
 }
-
-.date-label {
-  /* margin: auto 0; */
-  /* opacity: 85%; */
-  /* font-size: 24px; */
-}
-
-/* .datepicker:focus {
-  outline: none;
-} */
-
-/* .datepicker:hover {
-  cursor: pointer;
-} */
-
-/* .date-label:hover {
-  cursor: pointer;
-  opacity: 50%;
-} */
-
-/* .datepicker-text {
-  visibility: hidden;
-  grid-column-start: 4;
-  grid-column-end: 7;
-  grid-row-start: 5;
-  font-family: "Dancing Script", cursive;
-  border-radius: 6%;
-  font-size: 20px;
-} */
-
-/* .datepicker:hover .datepicker-text {
-  visibility: visible;
-} */
 
 .button button {
   height: 36px;
@@ -349,7 +297,6 @@ input[type="text"]::placeholder {
     display: block;
     margin: 3% auto;
     height: 90vh;
-    /* max-height: 90vh; */
     width: 93%;
     max-width: 700px;
     padding-top: 170px;
@@ -385,10 +332,6 @@ input[type="text"]::placeholder {
     text-align: right;
   }
 
-  /* .datepicker {
-    top: 8%;
-  } */
-
   .date-label {
     padding: 10px 0 0 0;
     grid-column-start: 1;
@@ -396,7 +339,6 @@ input[type="text"]::placeholder {
 
   .weather {
     position: relative;
-    /* right: -85px; */
     grid-column-start: 2;
   }
 

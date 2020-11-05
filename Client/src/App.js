@@ -12,11 +12,9 @@ function App() {
         <Switch>
           <Route exact path="/" component={Cover} />
           <Route exact path="/today" component={Today} />
-          <Route exact path="/:date" component={Today} />
         </Switch>
       </Router>
-    </AppState>
-    
+    </AppState> 
   );
 }
 

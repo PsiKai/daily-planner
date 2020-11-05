@@ -5,7 +5,6 @@ import AppReducer from "./AppReducer";
 import {
     GET_LIST,
     SET_ITEM,
-    // SET_STYLE
 } from "./types";
 
 const AppState = (props) => {
@@ -24,46 +23,47 @@ const AppState = (props) => {
 
     //get list
     const getList = async (listName) => {
-        console.log(listName);
-            const res = await axios.get(
+        const res = await axios.get(
             `/${listName}`, 
             {list: listName},
             {"Content-Type": "*/*"}
-            )
+        )
         dispatch({
             type: GET_LIST,
             payload: res.data
         })
-        // console.log(res.data);
     }
 
     //set items
     const setItem = async (inputText) => {
-        // console.log(intitialState.list);
-        const res = await axios.post("/", {item: inputText.item, list: inputText.list}, {"Content-Type": "*/(*"}
+        const res = await axios.post(
+            "/", 
+            {
+                item: inputText.item, 
+                list: inputText.list
+            }, 
+            {"Content-Type": "*/(*"}
         );
-        // console.log(res.data);
         dispatch({
             type: SET_ITEM,
             payload: res.data
-        })
-        
+        })   
     }
 
     // set strikethrough
     const crossOff = async (item) => {
-        // console.log(item);
-        const res = await axios.post("/delete", {item: item.item, list: item.list, id: item.id}, {"Content-Type": "*/(*"}
+         await axios.post(
+             "/delete", 
+             {
+                item: item.item, 
+                list: item.list, 
+                style: item.style},
+             {
+                "Content-Type": "*/(*"
+            }
         )
-        // console.log(res.data.style);
-        // dispatch({
-        //     type: SET_ITEM,
-        //     payload: res.data
-        // })
-        console.log(res.data);
     }
   
-
     return (
         <AppContext.Provider
             value={{
@@ -78,6 +78,5 @@ const AppState = (props) => {
         </AppContext.Provider>
     )
 }
-
 
 export default AppState;

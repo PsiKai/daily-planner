@@ -4,9 +4,7 @@ import List from './List';
 import AppContext from "../context/AppContext";
 
 const Content = () => {
-
     const appContext = useContext(AppContext);
-
     const {list, items} = appContext;
 
     useEffect(() => {
@@ -14,14 +12,23 @@ const Content = () => {
       //eslint-disable-next-line
     }, [list])
 
-    // console.log(items);
-
     return (
-        <div className="content">
-        <ul className="list" id="list">
-        {items.map((item, index) => {
-            return <List key={index} id={index} content={item.item} list={list} style={item.style}/>
-        })}
+      <div className="content">
+        <ul 
+          className="list" 
+          id="list"
+        >
+          {items.map((item, index) => {
+            return <List 
+                      key={index} 
+                      id={index} 
+                      content={item.item} 
+                      list={list} 
+                      style={item.style}
+                    />
+              }
+            )
+          }
           <Input list={list}/>
         </ul>
       </div>

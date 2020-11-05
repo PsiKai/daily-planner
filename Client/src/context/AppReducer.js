@@ -1,8 +1,8 @@
 import {
     GET_LIST,
     SET_ITEM,
-    // SET_STYLE
 } from "./types";
+
 //eslint-disable-next-line
 export default (state, action) => {
     switch (action.type) {
@@ -20,17 +20,6 @@ export default (state, action) => {
                 list: action.payload.list,
                 date: action.payload.list
             }
-        // case SET_STYLE:
-        //     return {
-        //         ...state,
-        //         items: state.items.map((item, index) => {
-        //             if (index === action.payload.id) {
-        //                 return {...item, style: action.payload.style}
-        //             } else {
-        //                 return item
-        //             }
-        //         })
-        //     }
         default:
             return state;
     }

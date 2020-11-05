@@ -2,27 +2,28 @@ import React, {Fragment} from 'react';
 import Weather from './Weather';
 import Day from './Day';
 import Datepicker from './Datepicker'
-
 import Content from './Content'
 
-
 const Today = () => {
-    return (
+  return (
     <Fragment>
-              {/* <a href="/"><h1>World</h1></a> */}
-    <div className="position-div inside-cover">
-      <div className="grid-div">
-        <img src="./images/Bald-Eagle.png" className="watermark" alt="watermark" />
-        <div className="page">
-          <div className="heading">
-            <div className="widget">
-                <Datepicker />
-                <Weather/>
+      <div className="position-div inside-cover">
+        <div className="grid-div">
+          <img 
+            src="./images/Bald-Eagle.png" 
+            className="watermark" 
+            alt="watermark"  
+          />
+          <div className="page">
+            <div className="heading">
+              <div className="widget">
+                  <Datepicker />
+                  <Weather/>
+              </div>
+              <Day />
             </div>
-            <Day />
-          </div>
           <div className="pattern">
-           <Content/>
+            <Content/>
           </div>
         </div>
       </div>
@@ -37,8 +38,8 @@ const Today = () => {
         alt="binder rings"
       />
     </div>
-    </Fragment>
-    )
+  </Fragment>
+  )
 }
 
 export default Today;

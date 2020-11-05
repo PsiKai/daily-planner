@@ -15,20 +15,10 @@ const Weather = () => {
     location && getWeather();
   };
 
-
-
-    const getWeather = async () => {
-      // getLocation();
-
+  const getWeather = async () => {
       const res = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`
-        // "https://api.openweathermap.org/data/2.5/weather?q=" 
-        // + location +
-        //   + "&appid=" +
-        //   apiKey +
-        //   "&units=imperial"
       );
-
       setWeather(Math.round(res.data.main.temp));
       setIcon(res.data.weather[0].icon);
     };

@@ -24,32 +24,31 @@ const Input = (props) => {
 
     const create = (e) => {
         e.preventDefault();
-        // console.log(list);
         appContext.setItem(newItem)
         setInputText("");  
         var penNoises = [pen1, pen2];
         var audio = new Audio(
             penNoises[Math.floor(Math.random() * penNoises.length)]
           );
-          audio.volume = 0.1;
-          audio.play();
+        audio.volume = 0.1;
+        audio.play();
     }
 
     return (
         <li>
-        <form className="button" onSubmit={create}>
-            <input
+            <form className="button" onSubmit={create}>
+                <input
                     name="newItem"
                     className="new-item"
                     type="text"
-                    placeholder="Plan your day"
+                    placeholder="Plan your day ..."
                     autoComplete="off"
                     autoFocus
                     value={inputText}
                     onChange={typing}
-                  />
-                  <Fab type="submit" mini="true"><AddIcon /></Fab>
-        </form>
+                />
+                <Fab type="submit" mini="true"><AddIcon /></Fab>
+            </form>
         </li>
     )
 }

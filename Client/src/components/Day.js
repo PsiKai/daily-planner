@@ -12,7 +12,7 @@ const Day = () => {
     var fullDate = new Date(dateString).toLocaleDateString("en-US", dateOptions)
     
     return (
-            <h1 className="date">{day} <br/> {fullDate}</h1>
+        <h1 className="date">{day} <br/> {fullDate}</h1>
     )
 }
 
