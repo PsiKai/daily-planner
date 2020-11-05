@@ -34,6 +34,13 @@ const Input = (props) => {
         audio.play();
     }
 
+    const myStyle = {
+        maxHeight: "30px",
+        minHeight: "30px",
+        minWidth: "30px",
+        maxWidth: "30px",
+    };
+
     return (
         <li>
             <form className="button" onSubmit={create}>
@@ -47,7 +54,7 @@ const Input = (props) => {
                     value={inputText}
                     onChange={typing}
                 />
-                <Fab type="submit" mini="true"><AddIcon /></Fab>
+                <Fab type="submit" style={myStyle}><AddIcon /></Fab>
             </form>
         </li>
     )

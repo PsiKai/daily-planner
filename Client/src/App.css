@@ -124,9 +124,9 @@ input[type="text"]::placeholder {
   top: 10px;
 }
 
-.button button {
-  height: 36px;
-  width: 36px;
+.button button.MuiFab-root {
+  /* max-height: 25px;
+  width: 30px; */
   background-color: #d4caa3;
   border: 1px solid #381a14;
 }
