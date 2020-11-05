@@ -1,5 +1,5 @@
 import React, {useReducer} from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import AppContext from "./AppContext";
 import AppReducer from "./AppReducer";
 import {
@@ -11,7 +11,8 @@ import {
 const AppState = (props) => {
     var date = new Date();
     var options = {day: '2-digit', month: 'short', year: 'numeric'};
-    var resultDate = date.toLocaleDateString('en-US', options).replace(/,/g, "").replace(/ /g, "-");
+    var resultDate = date.toLocaleDateString('en-US', options)
+    .replace(/,/g, "").replace(/ /g, "-");
 
     const intitialState = {
         list: resultDate,
@@ -24,8 +25,8 @@ const AppState = (props) => {
     //get list
     const getList = async (listName) => {
         console.log(listName);
-            const res = await Axios.get(
-            `http://localhost:5000/${listName}`, 
+            const res = await axios.get(
+            `/${listName}`, 
             {list: listName},
             {"Content-Type": "*/*"}
             )
@@ -39,7 +40,7 @@ const AppState = (props) => {
     //set items
     const setItem = async (inputText) => {
         // console.log(intitialState.list);
-        const res = await Axios.post("http://localhost:5000/", {item: inputText.item, list: inputText.list}, {"Content-Type": "*/(*"}
+        const res = await axios.post("/", {item: inputText.item, list: inputText.list}, {"Content-Type": "*/(*"}
         );
         // console.log(res.data);
         dispatch({
@@ -52,7 +53,7 @@ const AppState = (props) => {
     // set strikethrough
     const crossOff = async (item) => {
         // console.log(item);
-        const res = await Axios.post("http://localhost:5000/delete", {item: item.item, list: item.list, id: item.id}, {"Content-Type": "*/(*"}
+        const res = await axios.post("/delete", {item: item.item, list: item.list, id: item.id}, {"Content-Type": "*/(*"}
         )
         // console.log(res.data.style);
         // dispatch({

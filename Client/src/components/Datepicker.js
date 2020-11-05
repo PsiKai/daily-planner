@@ -9,7 +9,7 @@ const Datepicker = () => {
 
     const newDay = (e) => {
         // .replace(/-/g, '\/').replace(/T.+/, '')
-        var date = new Date(e.target.value);
+        var date = new Date(e.target.value.replace(/-/g, "/"));
         var options = {day: '2-digit', month: 'short', year: 'numeric'};
         var resultDate = date.toLocaleDateString('en-US', options).replace(/,/g, "").replace(/ /g, "-");
         appContext.getList(resultDate)

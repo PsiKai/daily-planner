@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 // import "../owfont-regular.css"
 
-let apiKey = "3393f6720b7a891184b9256089cba0f9";
+let apiKey = process.env.REACT_APP_WEATHER;
 
 const Weather = () => {
   const [weather, setWeather] = useState("");
@@ -12,17 +12,19 @@ const Weather = () => {
   const getLocation = async () => {
     const res = await axios.get("https://extreme-ip-lookup.com/json/");
     setLocation(res.data.city);
+    location && getWeather();
   };
 
-  useEffect(() => {
+
+
     const getWeather = async () => {
-      getLocation();
+      // getLocation();
 
       const res = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`
-        // "https://api.openweathermap.org/data/2.5/weather?q=" +
-        //   location +
-        //   "&appid=" +
+        // "https://api.openweathermap.org/data/2.5/weather?q=" 
+        // + location +
+        //   + "&appid=" +
         //   apiKey +
         //   "&units=imperial"
       );
@@ -31,8 +33,10 @@ const Weather = () => {
       setIcon(res.data.weather[0].icon);
     };
 
-    getWeather();
-    setInterval(() => getWeather(), 60000);
+ useEffect(() => {
+    getLocation();
+    setInterval(() => {getLocation()}, 60000);
+  //eslint-disable-next-line
   }, [location]);
 
   const imgURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";

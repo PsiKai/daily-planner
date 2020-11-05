@@ -48,7 +48,7 @@ const Input = (props) => {
                     value={inputText}
                     onChange={typing}
                   />
-                  <Fab type="submit"><AddIcon /></Fab>
+                  <Fab type="submit" mini="true"><AddIcon /></Fab>
         </form>
         </li>
     )

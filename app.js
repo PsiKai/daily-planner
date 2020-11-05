@@ -14,7 +14,8 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 app.listen(port,() => console.log("Backend started on port " + port));
 
-
+const mongoURI = process.env.REACT_APP_MONGO_URI;
+console.log(mongoURI);
 mongoose.connect("mongodb+srv://admin-david:test123@cluster0-6ghui.mongodb.net/dayplannerDB", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
 const itemsSchema = {
@@ -32,9 +33,9 @@ const listSchema = {
 const List = mongoose.model("List", listSchema);
 
 
-var date = new Date();
-var options = {day: '2-digit', month: 'short', year: 'numeric'};
-var resultDate = date.toLocaleDateString("en-GB", options).replace(/,/g, "").replace(/ /g, "-")
+// var date = new Date();
+// var options = {day: '2-digit', month: 'short', year: 'numeric'};
+// var resultDate = date.toLocaleDateString("en-US", options).replace(/,/g, "").replace(/ /g, "-")
 
 
 app.get("/:newDay", (req, res) => {
