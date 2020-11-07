@@ -12,7 +12,7 @@ const port = process.env.PORT || 5000;
 if (process.env.NODE_ENV !== 'production') {
     app.use(express.static("client/build"));
     app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, 'client', "build", "index.html")));
-    require('dotenv').config();
+    // require('dotenv').config();
 }
 
 app.use(bodyParser.urlencoded({
@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 app.listen(port,() => console.log("Backend started on port " + port));
 
-const mongoURI = process.env.REACT_APP_MONGO_URI;
+const mongoURI = "mongodb+srv://admin-david:test123@cluster0-6ghui.mongodb.net/dayplannerDB";
 
 mongoose.connect(
     mongoURI, 
