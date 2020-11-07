@@ -2,13 +2,14 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-}
 const path = require("path")
+const connectDB = require("./config/db");
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+
+connectDB();
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -19,17 +20,17 @@ app.listen(port,() => console.log("Backend started on port " + port));
 
 
 
-const mongoURI = "mongodb+srv://admin-david:test123@cluster0-6ghui.mongodb.net/dayplannerDB";
+
 // process.env.REACT_APP_MONGO_URI
 
-mongoose.connect(
-    mongoURI, 
-    {
-        useNewUrlParser: true, 
-        useUnifiedTopology: true, 
-        useFindAndModify: false
-    }
-);
+// mongoose.connect(
+//     mongoURI, 
+//     {
+//         useNewUrlParser: true, 
+//         useUnifiedTopology: true, 
+//         useFindAndModify: false
+//     }
+// );
 
 const itemsSchema = {
     item: String,
