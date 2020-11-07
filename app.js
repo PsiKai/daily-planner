@@ -23,7 +23,8 @@ if (process.env.NODE_ENV === "production") {
   app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, 'client', "build", "index.html")));
 };
 
-const mongoURI = process.env.REACT_APP_MONGO_URI;
+const mongoURI = "mongodb+srv://admin-david:test123@cluster0-6ghui.mongodb.net/dayplannerDB";
+// process.env.REACT_APP_MONGO_URI
 
 mongoose.connect(
     mongoURI, 
