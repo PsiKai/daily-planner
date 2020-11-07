@@ -8,7 +8,6 @@ const connectDB = require("./config/db");
 const app = express();
 const port = process.env.PORT || 5000;
 
-
 connectDB();
 
 app.use(bodyParser.urlencoded({
@@ -17,20 +16,6 @@ app.use(bodyParser.urlencoded({
   app.use(bodyParser.json());
 app.use(cors());
 app.listen(port,() => console.log("Backend started on port " + port));
-
-
-
-
-// process.env.REACT_APP_MONGO_URI
-
-// mongoose.connect(
-//     mongoURI, 
-//     {
-//         useNewUrlParser: true, 
-//         useUnifiedTopology: true, 
-//         useFindAndModify: false
-//     }
-// );
 
 const itemsSchema = {
     item: String,
